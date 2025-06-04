@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Стажировка Interpress 2025–2026</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar for a cleaner look (optional) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00529B; /* Interpress Blue */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #004180; 
+        }
+
+        /* Animation for sections */
+        .section-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .section-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Card hover effect */
+        .card-hover:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Timeline styles */
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2.5rem; /* 40px */
+            padding-left: 2.5rem; /* 40px */
+        }
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #FF7A00; /* Interpress Accent Orange */
+            border: 3px solid white;
+            z-index: 1;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 9px; /* (20px - 2px) / 2 */
+            top: 25px;
+            bottom: 0;
+            width: 2px;
+            background-color: #e2e8f0; /* gray-300 */
+        }
+         .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .bg-interpress-blue { background-color: #00529B; }
+        .text-interpress-blue { color: #00529B; }
+        .border-interpress-blue { border-color: #00529B; }
+        .hover\:bg-interpress-blue-dark:hover { background-color: #004180; } 
+
+        .bg-interpress-orange { background-color: #FF7A00; }
+        .text-interpress-orange { color: #FF7A00; }
+        .border-interpress-orange { border-color: #FF7A00; }
+        .hover\:bg-interpress-orange-dark:hover { background-color: #cc6200; }
+
+        .bg-interpress-light { background-color: #f0f8ff; } /* AliceBlue like */
+
+        /* Simple circle icon style */
+        .icon-circle {
+            width: 60px; /* Размер круга для секции "Цели" и "Что получишь" */
+            height: 60px;
+            border-radius: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+        .icon-circle-sm { /* Меньший размер для секции "Как расти" */
+            width: 48px; /* h-12 w-12 */
+            height: 48px;
+            border-radius: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1rem; /* mb-4 */
+        }
+
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-interpress-blue">
+                <img src="https://placehold.co/150x50/00529B/FFFFFF?text=Interpress" alt="Логотип Interpress" class="h-10 inline-block" onerror="this.src='https://placehold.co/150x50/cccccc/333333?text=Logo+Error'; this.onerror=null;">
+            </a>
+            <div class="space-x-4">
+                <a href="#mission" class="text-gray-600 hover:text-interpress-orange">Миссия</a>
+                <a href="#program" class="text-gray-600 hover:text-interpress-orange">Программа</a>
+                <a href="#benefits" class="text-gray-600 hover:text-interpress-orange">Что получишь</a>
+                <a href="https://wa.me/87021032054?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82!%20%F0%9F%91%8B%20%D0%9C%D0%B5%D0%BD%D1%8F%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%81%D1%82%D0%B0%D0%B6%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0" target="_blank" rel="noopener noreferrer" class="bg-interpress-orange text-white px-4 py-2 rounded-lg hover:bg-interpress-orange-dark transition duration-300">Подать заявку</a>
+            </div>
+        </div>
+    </nav>
+<img src="images/photo.jpg" alt="Групповое фото стажёров" class="mx-auto mb-6 rounded-xl shadow-lg w-full max-w-md">
+
+    <!-- 1. Hero Section -->
+    <header id="hero" class="bg-interpress-light py-20 md:py-32">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-interpress-blue mb-4 mt-8">Стажировка Interpress 2025–2026</h1>
+            <p class="text-xl md:text-2xl text-gray-700 mb-8">"Стань амбассадором. Прокачай навыки. Создавай сообщество."</p>
+            <a href="https://wa.me/87021032054?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82!%20%F0%9F%91%8B%20%D0%9C%D0%B5%D0%BD%D1%8F%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%81%D1%82%D0%B0%D0%B6%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0" target="_blank" rel="noopener noreferrer" class="bg-interpress-orange text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-interpress-orange-dark transition duration-300 shadow-lg transform hover:scale-105">
+                Подать заявку через WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <!-- 2. О стажировке / Миссия -->
+    <section id="mission" class="py-16 md:py-24 bg-white section-animate">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-interpress-blue mb-12">Миссия стажировки</h2>
+            <div class="max-w-3xl mx-auto bg-interpress-light p-8 rounded-xl shadow-lg">
+                <p class="text-lg md:text-xl text-gray-700 leading-relaxed text-center">
+                    "Создать активное комьюнити амбассадоров Interpress, развивая у старшеклассников навыки маркетинга, продвижения и создания контента. Стажёры учатся эффективно работать в команде, формируя преданность школе и привлекая новых участников, чтобы вместе укреплять сообщество и двигаться к общим целям."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Цели стажировки -->
+    <section id="goals" class="py-16 md:py-24 bg-gray-50 section-animate">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-interpress-blue mb-16">Цели стажировки</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Цель 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center card-hover">
+                    <div class="icon-circle bg-interpress-orange"></div>
+                    <h3 class="text-xl font-semibold text-interpress-blue mb-3">Командные и лидерские качества</h3>
+                    <p class="text-gray-600">Научишься работать в команде, брать на себя ответственность и вести за собой.</p>
+                </div>
+                <!-- Цель 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center card-hover">
+                    <div class="icon-circle bg-interpress-orange"></div>
+                    <h3 class="text-xl font-semibold text-interpress-blue mb-3">Навыки маркетинга и продвижения</h3>
+                    <p class="text-gray-600">Освоишь основы маркетинга, научишься создавать контент и продвигать идеи.</p>
+                </div>
+                <!-- Цель 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center card-hover">
+                    <div class="icon-circle bg-interpress-orange"></div>
+                    <h3 class="text-xl font-semibold text-interpress-blue mb-3">Комьюнити амбассадоров</h3>
+                    <p class="text-gray-600">Станешь частью дружного сообщества единомышленников и амбассадоров Interpress.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Программа по неделям (Timeline) -->
+    <section id="program" class="py-16 md:py-24 bg-interpress-light section-animate">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-interpress-blue mb-16">Программа по неделям</h2>
+            <div class="max-w-2xl mx-auto">
+                <div class="timeline-item">
+                    <h3 class="text-xl font-semibold text-interpress-orange mb-2">Неделя 1: Знакомство и командообразование</h3>
+                    <p class="text-gray-700">Погружение в программу, знакомство с командой, первые совместные задачи и тренинги на сплочение.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-xl font-semibold text-interpress-orange mb-2">Неделя 2: Маркетинг и создание контента</h3>
+                    <p class="text-gray-700">Изучение основ маркетинга, SMM, копирайтинга. Практические задания по созданию вовлекающего контента.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-xl font-semibold text-interpress-orange mb-2">Неделя 3: Организация мероприятий</h3>
+                    <p class="text-gray-700">Планирование и подготовка небольших мероприятий, развитие организаторских способностей.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-xl font-semibold text-interpress-orange mb-2">Неделя 4: Подготовка к крупному мероприятию</h3>
+                    <p class="text-gray-700">Работа в командах над большим проектом, применение всех полученных навыков на практике.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-xl font-semibold text-interpress-orange mb-2">Неделя 5: Итоги и презентации</h3>
+                    <p class="text-gray-700">Подведение итогов стажировки, презентация командных проектов, награждение лучших.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Карьерный рост стажёра -->
+    <section id="career-growth" class="py-16 md:py-24 bg-white section-animate">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-interpress-blue mb-16">Карьерный рост стажёра</h2>
+            <div class="grid md:grid-cols-4 gap-4 md:gap-0 relative">
+                <!-- Линия прогресса -->
+                <div class="absolute top-1/2 left-0 right-0 h-1 bg-interpress-orange hidden md:block" style="transform: translateY(-50%); z-index: 0;"></div>
+
+                <!-- Junior -->
+                <div class="relative bg-interpress-light p-6 rounded-lg shadow-md text-center z-10 card-hover">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-interpress-orange text-white text-xs font-bold px-3 py-1 rounded-full">1-2 неделя</div>
+                    <h3 class="text-lg font-semibold text-interpress-blue mt-4 mb-2">Junior Стажёр</h3>
+                    <p class="text-sm text-gray-600">Мероприятия на уровне центра. Первые шаги и обучение.</p>
+                </div>
+                <!-- Middle -->
+                <div class="relative bg-interpress-light p-6 rounded-lg shadow-md text-center z-10 card-hover mt-8 md:mt-0">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-interpress-orange text-white text-xs font-bold px-3 py-1 rounded-full">3-4 неделя</div>
+                    <h3 class="text-lg font-semibold text-interpress-blue mt-4 mb-2">Middle Стажёр</h3>
+                    <p class="text-sm text-gray-600">Мероприятия на уровне школы. Больше ответственности и опыта.</p>
+                </div>
+                <!-- Senior -->
+                <div class="relative bg-interpress-light p-6 rounded-lg shadow-md text-center z-10 card-hover mt-8 md:mt-0">
+                     <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-interpress-orange text-white text-xs font-bold px-3 py-1 rounded-full">5 неделя</div>
+                    <h3 class="text-lg font-semibold text-interpress-blue mt-4 mb-2">Senior Стажёр</h3>
+                    <p class="text-sm text-gray-600">Мероприятия на уровне города. Лидерство и крупные проекты.</p>
+                </div>
+                <!-- Ambassador -->
+                <div class="relative bg-interpress-light p-6 rounded-lg shadow-md text-center z-10 card-hover mt-8 md:mt-0">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-interpress-orange text-white text-xs font-bold px-3 py-1 rounded-full">6+ неделя</div>
+                    <h3 class="text-lg font-semibold text-interpress-blue mt-4 mb-2">Амбассадор Interpress</h3>
+                    <p class="text-sm text-gray-600">Официальный представитель. Участие в крупных мероприятиях и развитие комьюнити.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Как зарабатывать баллы (Геймификация) -->
+    <section id="gamification" class="py-16 md:py-24 bg-gray-50 section-animate">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-interpress-blue mb-16">Как расти и зарабатывать баллы?</h2>
+            <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Карточки геймификации -->
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+                    <div class="icon-circle-sm bg-interpress-blue"></div>
+                    <h3 class="text-lg font-semibold text-interpress-blue mb-2 text-center">Посещение стажировки</h3>
+                    <p class="text-sm text-gray-600 text-center">Регулярное участие во всех встречах и активностях.</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+                    <div class="icon-circle-sm bg-interpress-blue"></div>
+                    <h3 class="text-lg font-semibold text-interpress-blue mb-2 text-center">Быть активным</h3>
+                    <p class="text-sm text-gray-600 text-center">Проявляй инициативу, задавай вопросы, участвуй в обсуждениях.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+                    <div class="icon-circle-sm bg-interpress-blue"></div>
+                    <h3 class="text-lg font-semibold text-interpress-blue mb-2 text-center">Создание контента</h3>
+                    <p class="text-sm text-gray-600 text-center">Пиши посты, снимай видео, делай фото – делись опытом.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+                    <div class="icon-circle-sm bg-interpress-blue"></div>
+                    <h3 class="text-lg font-semibold text-interpress-blue mb-2 text-center">Продвижение школы</h3>
+                    <p class="text-sm text-gray-600 text-center">Рассказывай о стажировке и Interpress в своей школе.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+                    <div class="icon-circle-sm bg-interpress-blue"></div>
+                    <h3 class="text-lg font-semibold text-interpress-blue mb-2 text-center">Проведение мероприятий</h3>
+                    <p class="text-sm text-gray-600 text-center">Организуй и участвуй в проведении школьных и городских событий.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+                    <div class="icon-circle-sm bg-interpress-blue"></div>
+                    <h3 class="text-lg font-semibold text-interpress-blue mb-2 text-center">Привлечение участников</h3>
+                    <p class="text-sm text-gray-600 text-center">Приглашай друзей и знакомых присоединиться к стажировке.</p>
+                </div>
+            </div>
+            <p class="text-center text-gray-600 mt-12 text-lg">Каждое действие приносит баллы, которые влияют на твой рост и статус в программе!</p>
+        </div>
+    </section>
+
+    <!-- 7. Что получает стажёр -->
+    <section id="benefits" class="py-16 md:py-24 bg-interpress-light section-animate">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-interpress-blue mb-16">Что ты получишь от стажировки?</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Benefit 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center card-hover">
+                    <div class="icon-circle bg-interpress-orange"></div>
+                    <h3 class="text-xl font-semibold text-interpress-blue mb-3">Новый опыт и друзья</h3>
+                    <p class="text-gray-600">Бесценный опыт, новые знания и знакомства с единомышленниками.</p>
+                </div>
+                <!-- Benefit 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center card-hover">
+                    <div class="icon-circle bg-interpress-orange"></div>
+                    <h3 class="text-xl font-semibold text-interpress-blue mb-3">Сертификаты и рекомендации</h3>
+                    <p class="text-gray-600">Официальный сертификат о прохождении стажировки и рекомендации.</p>
+                </div>
+                <!-- Benefit 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center card-hover">
+                    <div class="icon-circle bg-interpress-orange"></div>
+                    <h3 class="text-xl font-semibold text-interpress-blue mb-3">400 баллов (и более!)</h3>
+                    <p class="text-gray-600">Возможность накопить баллы и обменять их на призы или бонусы.</p>
+                </div>
+                <!-- Benefit 4 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center card-hover">
+                    <div class="icon-circle bg-interpress-orange"></div>
+                    <h3 class="text-xl font-semibold text-interpress-blue mb-3">Статус амбассадора</h3>
+                    <p class="text-gray-600">Шанс стать официальным амбассадором Interpress в своей школе.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer - УДАЛЕН -->
+    <!-- 
+    <footer class="bg-interpress-blue text-white py-12">
+        ...
+    </footer>
+    -->
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href').startsWith('#') && !this.href.includes('wa.me')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Intersection Observer for section animations
+        const sections = document.querySelectorAll('.section-animate');
+        const observerOptions = {
+            root: null, 
+            rootMargin: '0px',
+            threshold: 0.1 
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
